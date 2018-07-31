@@ -12,7 +12,9 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:mv_dividerText=","
+        app:mv_showDivider="true" />
 
     <com.alexzaitsev.meternumberpicker.MeterView
         android:id="@+id/meterView2"
@@ -26,6 +28,8 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meterView1" />
+        app:layout_constraintTop_toBottomOf="@+id/meterView1"
+        app:mv_dividerText=","
+        app:mv_showDivider="true" />
 
 </android.support.constraint.ConstraintLayout>

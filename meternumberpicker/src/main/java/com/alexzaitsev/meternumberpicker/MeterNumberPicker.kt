@@ -98,7 +98,7 @@ class MeterNumberPicker : View {
     /**
      * The text size
      */
-    private var textSize: Float
+    var textSize: Float
         get() {
             return textPaint
                     .textSize
@@ -112,7 +112,7 @@ class MeterNumberPicker : View {
     /**
      * The text color
      */
-    private var textColor: Int
+    var textColor: Int
         get() {
             return textPaint
                     .color
@@ -212,7 +212,7 @@ class MeterNumberPicker : View {
         initWithAttrs(context, attrs, defStyleAttr, 0)
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP) constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP) constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, @StyleRes defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
         initWithAttrs(context, attrs, defStyleAttr, defStyleRes)
     }
 
@@ -220,7 +220,7 @@ class MeterNumberPicker : View {
         initWithStyle(context, styleId)
     }
 
-    private fun initWithAttrs(context: Context, attrs: AttributeSet?, defStyleAttrs: Int, defStyleRes: Int) {
+    private fun initWithAttrs(context: Context, attrs: AttributeSet?, defStyleAttrs: Int, @StyleRes defStyleRes: Int) {
         val attributesArray = context
                 .obtainStyledAttributes(attrs, R.styleable.MeterNumberPicker, defStyleAttrs, defStyleRes)
         init(context, attributesArray)
@@ -510,8 +510,11 @@ class MeterNumberPicker : View {
      * @return currentValueOffset if no changes should be applied, currentValueOffset + 1 or currentValueOffset - 1
      */
     private fun calculateAdjustedValueOffset(measuredHeight: Int): Int {
-        return if (Math.abs(currentScrollOffset) < measuredHeight / 2) currentValueOffset
-        else currentValueOffset + if (currentScrollOffset < 0) -1 else 1
+        return if (Math.abs(currentScrollOffset) < measuredHeight / 2) {
+            currentValueOffset
+        } else {
+            currentValueOffset + if (currentScrollOffset < 0) -1 else 1
+        }
     }
 
     private fun adjust(measuredHeight: Int, adjustedValueOffset: Int) {
