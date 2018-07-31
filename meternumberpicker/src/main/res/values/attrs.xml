@@ -18,6 +18,9 @@
         <attr name="mv_numberOfFirst" format="integer" />
         <attr name="mv_numberOfSecond" format="integer" />
         <attr name="mv_firstColor" format="color" />
+        <attr name="mv_showDivider" format="boolean" />
+        <attr name="mv_dividerColor" format="color" />
+        <attr name="mv_dividerText" format="string" />
         <attr name="mv_secondColor" format="color" />
         <attr name="mv_pickerStyle" format="reference" />
         <attr name="mv_enabled" format="boolean" />
